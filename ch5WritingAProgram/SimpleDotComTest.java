@@ -1,5 +1,5 @@
 //TDD
-class SimpleDotComTest {
+public class SimpleDotComTest {
   public static void main(String[] args) {
     SimpleDotCom dot = new SimpleDotCom();
     int[] locations = {3,4,5};
