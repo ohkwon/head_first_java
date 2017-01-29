@@ -10,9 +10,9 @@ class DotComBust {
   }
 
   void setUpGame() {
-    DotCom first = new Dotcom();
+    DotCom first = new DotCom();
     first.setName("dinner.com");
-    DotCom second = new Dotcom();
+    DotCom second = new DotCom();
     second.setName("plz.com");
     DotCom third = new DotCom();
     third.setName("den.com");
@@ -41,7 +41,7 @@ class DotComBust {
         break;
       }
       if (result.equals("kill")) {
-        dotComsList.remove(currentCom);
+        dotComList.remove(currentCom);
         break;
       }
     }

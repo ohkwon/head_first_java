@@ -16,7 +16,7 @@ public class DotCom {
     return name;
   }
 
-  public String checkYourself(userGuess) {
+  public String checkYourself(String userGuess) {
     String result = "miss";
     if (locationCells.contains(userGuess)) {
       locationCells.remove(userGuess);
