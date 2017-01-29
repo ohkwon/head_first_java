@@ -6,7 +6,9 @@ class DotComBust {
   private int guessCount = 0;
 
   public static void main(String[] args) {
-
+    DotComBust game = new DotComBust();
+    game.setUpGame();
+    game.startPlaying();
   }
 
   void setUpGame() {
@@ -20,7 +22,7 @@ class DotComBust {
     dotComList.add(second);
     dotComList.add(third);
     for (DotCom currentCom : dotComList) {
-      //generate location cells without collisions
+      currentCom.setLocationCells(helper.locationCreate(3));
     }
   }
 

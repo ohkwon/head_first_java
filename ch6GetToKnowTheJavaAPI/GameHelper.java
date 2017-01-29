@@ -26,12 +26,13 @@ public class GameHelper {
 
   public ArrayList<String> locationCreate(int length) {
     int orientationPick = (int) (Math.random() * 1);
-    String horizontalStart;
-    String verticalStart;
+    String horizontalStart = "";
+    String verticalStart = "";
     ArrayList<String> locationCells = new ArrayList<String>();
     if (orientationPick == 0) {
-      while (horizontalStart == null) {
-        int horizontalIndex = (int) (Math.random() * (7 - length));
+      int horizontalIndex = 0;
+      while (horizontalStart == "") {
+        horizontalIndex = (int) (Math.random() * (7 - length));
         verticalStart = vertical[(int) (Math.random() * 7)];
         for (int i = 0; i < length; i++) {
           if (usedCells.contains(horizontal[horizontalIndex + i] + verticalStart)) {
@@ -43,20 +44,22 @@ public class GameHelper {
         }
       }
       for (int i = 0; i < length; i++) {
+        int newIndex = horizontalIndex + i;
         locationCells.add(horizontal[horizontalIndex + i] + verticalStart);
         usedCells.add(horizontal[horizontalIndex + i] + verticalStart);
       }
       return locationCells;
     } else {
-      while (verticalStart == null) {
-        int verticalIndex = (int) (Math.random() * (7 - length));
+      int verticalIndex = 0;
+      while (verticalStart == "") {
+        verticalIndex = (int) (Math.random() * (7 - length));
         horizontalStart = horizontal[(int) (Math.random() * 7)];
         for (int i = 0; i < length; i++) {
           if (usedCells.contains(horizontalStart + vertical[verticalIndex + i])) {
             break;
           }
           if (i == length - 1) {
-            verticalStart = verticalIndex[verticalIndex];
+            verticalStart = vertical[verticalIndex];
           }
         }
       }
@@ -66,6 +69,6 @@ public class GameHelper {
       }
       return locationCells;
     }
-    return null;
+    // return null;
   }
 }
