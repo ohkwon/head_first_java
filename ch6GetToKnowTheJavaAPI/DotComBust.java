@@ -2,7 +2,7 @@ import java.util.*;
 
 class DotComBust {
   private GameHelper helper = new GameHelper();
-  private ArrayList<DotCom> dotComList;
+  private ArrayList<DotCom> dotComList = new ArrayList<DotCom>();
   private int guessCount = 0;
 
   public static void main(String[] args) {
@@ -22,7 +22,8 @@ class DotComBust {
     dotComList.add(second);
     dotComList.add(third);
     for (DotCom currentCom : dotComList) {
-      currentCom.setLocationCells(helper.locationCreate(3));
+      ArrayList<String> inputList = helper.locationCreate(3);
+      currentCom.setLocationCells(inputList);
     }
   }
 
