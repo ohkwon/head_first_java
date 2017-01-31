@@ -1,12 +1,5 @@
 abstract class Instrument {
-
+  public void playNote() {
+    System.out.println("C~~~~~");
+  }
 }
-
-class Guitar extends Instrument {
-
-}
-
-class Stratocaster extends Guitar {
-
-}
-
