@@ -1,5 +1,8 @@
 class Stratocaster extends Guitar implements Lead {
+  // guitar subclass, utilizes Lead interface
 
+
+  // code runner
   public static void main(String[] args) {
     Stratocaster strat = new Stratocaster();
     System.out.println("Instrument methods:\n");
@@ -14,6 +17,7 @@ class Stratocaster extends Guitar implements Lead {
     strat.takeSpotLight();
   }
 
+  // stratocaster specific method
   public void playChimingCleans() {
     System.out.println("Wonderful Clean Guitar sound: Chigachigachangchang");
   }
@@ -24,6 +28,7 @@ class Stratocaster extends Guitar implements Lead {
     System.out.println("Playing typical rock guitar solo");
   }
 
+  // overriding interface methods
   public void takeSpotLight() {
     System.out.println("Aside to bandmates: 'We wouldn't have all these fans if it weren't for me, so I get the spotlight'");
   }
