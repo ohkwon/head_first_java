@@ -1,12 +1,17 @@
 class ExceptionThrower {
   // to write a risky method, simply attach "throws <exception name>" after the method name, and beforethe curly brackets
-  public void risky() throws ExampleException {
+  public void risky() throws ExampleException, ExampleException2 {
     // random number generator to create multiple test cases
-    int num = (int) (Math.random() * 2);
+    int num = (int) (Math.random() * 3);
     if (num == 0) {
       System.out.println("I will throw error because " + num);
       // this will case this method to throw an exception
       throw new ExampleException();
+    } else if (num == 1) {
+
+      System.out.println("I will throw error because " + num);
+      // this is for a case with multiple different exceptions
+      throw new ExampleException2();
     } else {
       // no exception thrown
       System.out.println("I will not throw an error because " + num);
@@ -26,6 +31,10 @@ public class ExceptionTest {
     } catch (ExampleException ex) {
       // an exception is an object of type exception, ExceptionExample, my own personal exception, is a subclass, ex is the block variable name for the exception itself
       System.out.println("I have caught a risky method failing");
+    } catch (ExampleException2 ex2) {
+      // this is for a case when there are multiple excpetions, you want to make sure to have a catch for all of them
+      // have exceptions in order of small to large. 
+      System.out.println("I have caught a risky method failing with example Exception2");
     } finally {
       // this is a method that is used for something that you want to happen, regardless of whether the risky method threw an exception or not
       // This is not necessary, only try and catch is
@@ -42,10 +51,18 @@ public class ExceptionTest {
 }
 
 // created a personal exception subclass
-class ExampleException extends Exception {
+class ExampleException extends ExampleException2 {
   private String stuff;
 
   public ExampleException() {
+    stuff = "test";
+  }
+}
+
+class ExampleException2 extends Exception {
+  private String stuff;
+
+  public ExampleException2() {
     stuff = "test";
   }
 }
