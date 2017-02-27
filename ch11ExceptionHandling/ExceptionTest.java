@@ -17,6 +17,10 @@ class ExceptionThrower {
       System.out.println("I will not throw an error because " + num);
     }
   }
+
+  public void riskyDuck() throws ExampleException {
+    throw new ExampleException();
+  }
 }
 
 public class ExceptionTest {
@@ -43,10 +47,30 @@ public class ExceptionTest {
   }
   // if you don't wrap a call to a risky method (a method that states throws "some exception") compiler will not be happy
 
+  // this is a method that calls a risky method, but avoids having to use a try/catch by ducking.
+  // you can duck by stating that his method is a risky method too. so the try/catch statement will need to be in the method that calls this method
+  public void duck() throws ExampleException {
+    // it calls the risky mehtod without rapping it in a try/catch
+    ExceptionThrower throwerTest2 = new ExceptionThrower();
+    throwerTest2.riskyDuck();
+    System.out.println("I am calling a risky method and avoiding responsibility by ducking");
+  }
+
+  public void duckCaller() {
+    try {
+      // this calls the method that ducks within a try/catch so it works
+      System.out.println("I called a method that ducks so I have it in a try statement");
+      duck();
+    } catch (ExampleException ex) {
+      System.out.println("And that risky method that ducks did throw me an exception after all");
+    }
+  }
+
   public static void main(String[] args) {
     // create object and run method that calls a risky method
     ExceptionTest testing = new ExceptionTest();
     testing.testingException();
+    testing.duckCaller();
   }
 }
 
