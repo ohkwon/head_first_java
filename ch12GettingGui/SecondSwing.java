@@ -40,7 +40,12 @@ public class SecondSwing implements ActionListener {
     frame.setVisible(true);
   }
 
+  // this is our listener interface, a bridge between hte listener (you) and the event source (the button)
+  // basically, this is our event handler
+  // the button will call this method to let you know an event happened. 
+  // normally, it sends an ActionEvent object as an argument, but that's not important at the moment
   public void actionPerformed(ActionEvent event) {
+    // this is so that there are three different ways that the button will act upon hearing an event
     if (stage == 0) {
       button.setText("I have a but");
       stage += 1;
